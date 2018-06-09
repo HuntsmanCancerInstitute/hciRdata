@@ -1,2 +1,2 @@
 # hciRdata
-Datasets for hciR package
+Datasets from Ensembl, HUGO, MGI, and MSigDB for hciR package.
