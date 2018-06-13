@@ -2,18 +2,15 @@
 #'
 #' Read Ensembl annotations using \code{biomaRt} library
 #'
-#' @param dataset The first letter of genus and full species name like btaurus, ecaballus, sscrofa from \code{listEnsembl}.
-#' A few common names are accepted for human, mouse, rat, fruitfly, yeast and zebrafish.
+#' @param dataset The first letter of genus and full species name like btaurus
+#' or ecaballus from \code{listEnsembl}. Ten common names are also accepted
+#' for human, mouse, fly, worm, pig, rat, rabbit, sheep, yeast or zebrafish
 #' @param attributes vector of column names to pass to \code{getBM}, default ensembl_gene_id,
 #'  external_gene_name, gene_biotype, chromosome_name, start_position, end_position, strand,
-#'  description, transcript_count, and entrezgene
-#' @param version Ensembl version number for ‘useEnsembl’. Default is current version.
+#'  description and transcript_count
+#' @param version Ensembl version number for \code{useEnsembl}. Default is current version.
 #' @param list return a list of either datasets, attributes or filters only.
 #' @param \dots additional options passed to \code{getBM} or \code{listAttributes}
-#'
-#' @note Many attributes like entrezgene have a 0 to many relationship with ensembl_gene_id
-#' causing duplicate ensembl ids to be added.  The default returns a 10 column table where
-#' entrezgene is grouped into a comma-separated list so ensembl id is unique.
 #'
 #' @return A tibble
 #'
@@ -97,7 +94,7 @@ read_biomart_version <- function( dataset="human", attributes, version = NULL, l
           bm$description <- gsub(" \\[.*\\]$", "" , bm$description)
           # white space in version 92
            bm$description <- trimws( bm$description)
-
+           bm <- dplyr::arrange(bm, "id")
       }else{
          bm <- biomaRt::getBM(attributes= attributes, mart = ensembl, ...)
       }
