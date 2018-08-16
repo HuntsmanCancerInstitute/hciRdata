@@ -15,7 +15,6 @@ mouse92_homologs
 Mouse and human homologs from Ensembl release 92
 }
 \examples{
-data(mouse92_homologs)
 mouse92_homologs
 filter(mouse92_homologs, !mouse \%in\% mgi$mouse)
 }

@@ -16,7 +16,6 @@ worm90
 Roundworm (C. elegans) gene annotations from Ensembl release 90
 }
 \examples{
-data(worm90)
 worm90
 group_by(worm90, biotype) \%>\% summarize(n=n()) \%>\% arrange(desc(n))
 }

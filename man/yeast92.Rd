@@ -16,9 +16,7 @@ yeast92
 Yeast (S. cerevisiae) gene annotations from Ensembl release 92
 }
 \examples{
-data(yeast92)
 yeast92
-data(yeast90)
 inner_join( group_by(yeast90, biotype) \%>\% summarize(n90=n()),
             group_by(yeast92, biotype) \%>\% summarize(n92=n())) \%>\%
             mutate(diff = n92 - n90) \%>\%  arrange(desc(n92))

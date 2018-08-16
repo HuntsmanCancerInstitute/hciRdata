@@ -16,7 +16,6 @@ rat90
 Rat gene annotations from Ensembl release 90
 }
 \examples{
-data(rat90)
 rat90
 group_by(rat90, biotype) \%>\% summarize(n=n()) \%>\% arrange(desc(n))
 }

@@ -16,7 +16,6 @@ fly90
 Fruitfly gene annotations from Ensembl release 90
 }
 \examples{
-data(fly90)
 fly90
 group_by(fly90, biotype) \%>\% summarize(n=n()) \%>\% arrange(desc(n))
 }

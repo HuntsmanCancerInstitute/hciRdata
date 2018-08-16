@@ -16,9 +16,7 @@ sheep92
 Sheep gene annotations from Ensembl release 92
 }
 \examples{
-data(sheep92)
 sheep92
-data(sheep90)
 inner_join( group_by(sheep90, biotype) \%>\% summarize(n90=n()),
             group_by(sheep92, biotype) \%>\% summarize(n92=n())) \%>\%
             mutate(diff = n92 - n90) \%>\%  arrange(desc(n92))

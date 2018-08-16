@@ -16,9 +16,7 @@ zebrafish92
 Zebrafish gene annotations from Ensembl release 92
 }
 \examples{
-data(zebrafish92)
 zebrafish92
-data(zebrafish90)
 inner_join( group_by(zebrafish90, biotype) \%>\% summarize(n90=n()),
             group_by(zebrafish92, biotype) \%>\% summarize(n92=n())) \%>\%
             mutate(diff = n92 - n90) \%>\%  arrange(desc(n92))

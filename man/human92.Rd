@@ -4,7 +4,7 @@
 \name{human92}
 \alias{human92}
 \title{Human gene annotations from Ensembl release 92}
-\format{A tibble with 64,561 rows and 9 columns: id, gene_name, biotype, chromosome,
+\format{A tibble with 58,395 rows and 9 columns: id, gene_name, biotype, chromosome,
 start, end, strand, description, transcripts}
 \source{
 \code{read_biomart_version("human", version = 92)}
@@ -16,10 +16,8 @@ human92
 Human gene annotations from Ensembl release 92
 }
 \examples{
-data(human92)
 human92
 attr(human92, "downloaded")
-data(human90)
 inner_join( group_by(human90, biotype) \%>\% summarize(n90=n()),
             group_by(human92, biotype) \%>\% summarize(n92=n())) \%>\%
             mutate(diff = n92 - n90) \%>\%  arrange(desc(n92))

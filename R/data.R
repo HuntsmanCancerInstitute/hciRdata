@@ -10,11 +10,10 @@
 #' @source \url{http://www.informatics.jax.org/downloads/reports/HMD_HumanPhenotype.rpt}.
 #' See the \code{data-raw} directory for code to download and group by mouse gene.
 #' @examples
-#' data(mgi)
 #' mgi
 #' filter(mgi, n>1)                     # 2 or more homologs
 #' prop.table(table( mgi$human == toupper(mgi$mouse))) # 87% are the same
-#' data(mouse92)                     # 127 missing in Ensembl version 92
+#' # 127 missing in Ensembl version 92
 #' filter(mgi, !mouse %in% mouse92$gene_name)
 #' attr(mgi, "downloaded")
 #' attr(mgi, "version")
@@ -25,18 +24,16 @@
 #' @format A tibble with 24,670 rows and 5 columns: id,mouse, perc_id, n, human
 #' @source \code{read_biomart}. See \code{data_raw/ensembl.R} for details.
 #' @examples
-#' data(mouse92_homologs)
 #' mouse92_homologs
 #' filter(mouse92_homologs, !mouse %in% mgi$mouse)
 "mouse92_homologs"
 
 #' Human gene annotations from Ensembl release 90
 #'
-#' @format A tibble with 63,967 rows and 9 columns: id, gene_name, biotype, chromosome,
+#' @format A tibble with 58,302 rows and 9 columns: id, gene_name, biotype, chromosome,
 #' start, end, strand, description, transcripts
 #' @source \code{read_biomart_version("human", version = 90)}
 #' @examples
-#' data(human90)
 #' human90
 #' attr(human90, "downloaded")
 #' group_by(human90, biotype) %>% summarize(n=n()) %>% arrange(desc(n))
@@ -44,12 +41,11 @@
 
 #' Mouse gene annotations from Ensembl release 90
 #'
-#' @format A tibble with 53,110 rows and 10 columns: id, gene_name, biotype, chromosome,
+#' @format A tibble with 52,636 rows and 10 columns: id, gene_name, biotype, chromosome,
 #' start, end, strand, description, transcripts, human_homolog from MGI.
 #' @source \code{read_biomart_version("mouse", version = 90)}.
 #'  the \code{mouse.R} file in the \code{data-raw} directory for details.
 #' @examples
-#' data(mouse90)
 #' mouse90
 #' filter(mouse90[, c(1:4,10)], grepl(",", human_homolog))
 #' group_by(mouse90, biotype) %>%
@@ -63,7 +59,6 @@
 #' start, end, strand, description, transcripts
 #' @source \code{read_biomart_version("fly", version = 90)}
 #' @examples
-#' data(fly90)
 #' fly90
 #' group_by(fly90, biotype) %>% summarize(n=n()) %>% arrange(desc(n))
 "fly90"
@@ -74,7 +69,6 @@
 #' start, end, strand, description, transcripts
 #' @source \code{read_biomart_version("rat", version = 90)}
 #' @examples
-#' data(rat90)
 #' rat90
 #' group_by(rat90, biotype) %>% summarize(n=n()) %>% arrange(desc(n))
 "rat90"
@@ -85,7 +79,6 @@
 #' start, end, strand, description, transcripts
 #' @source \code{read_biomart_version("pig", version = 90)}
 #' @examples
-#' data(pig90)
 #' pig90
 #' group_by(pig90, biotype) %>% summarize(n=n()) %>% arrange(desc(n))
 "pig90"
@@ -96,7 +89,6 @@
 #' start, end, strand, description, transcripts
 #' @source \code{read_biomart_version("sheep", version = 90)}
 #' @examples
-#' data(sheep90)
 #' sheep90
 #' group_by(sheep90, biotype) %>% summarize(n=n()) %>% arrange(desc(n))
 "sheep90"
@@ -107,7 +99,6 @@
 #' start, end, strand, description, transcripts
 #' @source \code{read_biomart_version("rabbit", version = 90)}
 #' @examples
-#' data(rabbit90)
 #' rabbit90
 #' group_by(rabbit90, biotype) %>% summarize(n=n()) %>% arrange(desc(n))
 "rabbit90"
@@ -118,7 +109,6 @@
 #' start, end, strand, description, transcripts
 #' @source \code{read_biomart_version("zebrafish", version = 90)}
 #' @examples
-#' data(zebrafish90)
 #' zebrafish90
 #' group_by(zebrafish90, biotype) %>% summarize(n=n()) %>% arrange(desc(n))
 "zebrafish90"
@@ -129,7 +119,6 @@
 #' start, end, strand, description, transcripts
 #' @source \code{read_biomart_version("roundworm", version = 90)}
 #' @examples
-#' data(worm90)
 #' worm90
 #' group_by(worm90, biotype) %>% summarize(n=n()) %>% arrange(desc(n))
 "worm90"
@@ -140,21 +129,18 @@
 #' start, end, strand, description, transcripts
 #' @source \code{read_biomart_version("yeast", version = 90)}
 #' @examples
-#' data(yeast90)
 #' yeast90
 #' group_by(yeast90, biotype) %>% summarize(n=n()) %>% arrange(desc(n))
 "yeast90"
 
 #' Human gene annotations from Ensembl release 92
 #'
-#' @format A tibble with 64,561 rows and 9 columns: id, gene_name, biotype, chromosome,
+#' @format A tibble with 58,395 rows and 9 columns: id, gene_name, biotype, chromosome,
 #' start, end, strand, description, transcripts
 #' @source \code{read_biomart_version("human", version = 92)}
 #' @examples
-#' data(human92)
 #' human92
 #' attr(human92, "downloaded")
-#' data(human90)
 #' inner_join( group_by(human90, biotype) %>% summarize(n90=n()),
 #'             group_by(human92, biotype) %>% summarize(n92=n())) %>%
 #'             mutate(diff = n92 - n90) %>%  arrange(desc(n92))
@@ -162,15 +148,13 @@
 
 #' Mouse gene annotations from Ensembl release 92
 #'
-#' @format A tibble with 54,590 rows and 10 columns: id, gene_name, biotype, chromosome,
+#' @format A tibble with 53,801 rows and 10 columns: id, gene_name, biotype, chromosome,
 #' start, end, strand, description, transcripts, human_homolog from MGI.
 #' @source \code{read_biomart_version("mouse", version = 92)}.
 #'  the \code{mouse.R} file in the \code{data-raw} directory for details.
 #' @examples
-#' data(mouse92)
 #' mouse92
 #' filter(mouse92[, c(1:4,10)], grepl(",", human_homolog))
-#' data(mouse90)
 #' inner_join( group_by(mouse90, biotype) %>% summarize(n90=n()),
 #'             group_by(mouse92, biotype) %>% summarize(n92=n())) %>%
 #'             mutate(diff = n92 - n90) %>%  arrange(desc(n92))
@@ -182,9 +166,7 @@
 #' start, end, strand, description, transcripts
 #' @source \code{read_biomart_version("fly", version = 92)}
 #' @examples
-#' data(fly92)
 #' fly92
-#' data(fly90)
 #' inner_join( group_by(fly90, biotype) %>% summarize(n90=n()),
 #'             group_by(fly92, biotype) %>% summarize(n92=n())) %>%
 #'             mutate(diff = n92 - n90) %>%  arrange(desc(n92))
@@ -196,9 +178,7 @@
 #' start, end, strand, description, transcripts
 #' @source \code{read_biomart_version("rat", version = 92)}
 #' @examples
-#' data(rat92)
 #' rat92
-#' data(rat90)
 #' inner_join( group_by(rat90, biotype) %>% summarize(n90=n()),
 #'             group_by(rat92, biotype) %>% summarize(n92=n())) %>%
 #'             mutate(diff = n92 - n90) %>%  arrange(desc(n92))
@@ -210,9 +190,7 @@
 #' start, end, strand, description, transcripts
 #' @source \code{read_biomart_version("pig", version = 92)}
 #' @examples
-#' data(pig92)
 #' pig92
-#' data(pig90)
 #' inner_join( group_by(pig90, biotype) %>% summarize(n90=n()),
 #'             group_by(pig92, biotype) %>% summarize(n92=n())) %>%
 #'             mutate(diff = n92 - n90) %>%  arrange(desc(n92))
@@ -224,9 +202,7 @@
 #' start, end, strand, description, transcripts
 #' @source \code{read_biomart_version("sheep", version = 92)}
 #' @examples
-#' data(sheep92)
 #' sheep92
-#' data(sheep90)
 #' inner_join( group_by(sheep90, biotype) %>% summarize(n90=n()),
 #'             group_by(sheep92, biotype) %>% summarize(n92=n())) %>%
 #'             mutate(diff = n92 - n90) %>%  arrange(desc(n92))
@@ -238,9 +214,7 @@
 #' start, end, strand, description, transcripts
 #' @source \code{read_biomart_version("rabbit", version = 92)}
 #' @examples
-#' data(rabbit92)
 #' rabbit92
-#' data(rabbit90)
 #' inner_join( group_by(rabbit90, biotype) %>% summarize(n90=n()),
 #'             group_by(rabbit92, biotype) %>% summarize(n92=n())) %>%
 #'             mutate(diff = n92 - n90) %>%  arrange(desc(n92))
@@ -252,9 +226,7 @@
 #' start, end, strand, description, transcripts
 #' @source \code{read_biomart_version("zebrafish", version = 92)}
 #' @examples
-#' data(zebrafish92)
 #' zebrafish92
-#' data(zebrafish90)
 #' inner_join( group_by(zebrafish90, biotype) %>% summarize(n90=n()),
 #'             group_by(zebrafish92, biotype) %>% summarize(n92=n())) %>%
 #'             mutate(diff = n92 - n90) %>%  arrange(desc(n92))
@@ -266,9 +238,7 @@
 #' start, end, strand, description, transcripts
 #' @source \code{read_biomart_version("roundworm", version = 92)}
 #' @examples
-#' data(worm92)
 #' worm92
-#' data(worm90)
 #' inner_join( group_by(worm90, biotype) %>% summarize(n90=n()),
 #'             group_by(worm92, biotype) %>% summarize(n92=n())) %>%
 #'             mutate(diff = n92 - n90) %>%  arrange(desc(n92))
@@ -280,9 +250,7 @@
 #' start, end, strand, description, transcripts
 #' @source \code{read_biomart_version("yeast", version = 92)}
 #' @examples
-#' data(yeast92)
 #' yeast92
-#' data(yeast90)
 #' inner_join( group_by(yeast90, biotype) %>% summarize(n90=n()),
 #'             group_by(yeast92, biotype) %>% summarize(n92=n())) %>%
 #'             mutate(diff = n92 - n90) %>%  arrange(desc(n92))
@@ -295,7 +263,6 @@
 #'
 #' @source \url{https://www.genenames.org/}
 #' @examples
-#' data(hugo)
 #' hugo
 #' table(hugo$source)
 "hugo"
@@ -306,7 +273,6 @@
 #'
 #' @source \url{http://software.broadinstitute.org/gsea/msigdb/collections.jsp}
 #' @examples
-#' data(msig_hallmark)
 #' length(msig_hallmark)
 #' msig_hallmark[1:3]
 "msig_hallmark"
@@ -317,7 +283,6 @@
 #'
 #' @source \url{http://software.broadinstitute.org/gsea/msigdb/collections.jsp}
 #' @examples
-#' data(msig_pathways)
 #' sapply(msig_pathways, length)
 #' msig_pathways$KEGG[1:3]
 "msig_pathways"
@@ -329,7 +294,6 @@
 #'
 #' @source \url{http://software.broadinstitute.org/gsea/msigdb/collections.jsp}
 #' @examples
-#' data(msig_motifs)
 #' sapply(msig_motifs, length)
 #' msig_motifs$MIR[1:3]
 "msig_motifs"
@@ -342,7 +306,6 @@
 #'
 #' @source \url{http://software.broadinstitute.org/gsea/msigdb/collections.jsp}
 #' @examples
-#' data(msig_cancer)
 #' sapply(msig_cancer, length)
 #' msig_cancer$CAR[1:3]
 "msig_cancer"
@@ -353,7 +316,6 @@
 #'
 #' @source \url{http://software.broadinstitute.org/gsea/msigdb/collections.jsp}
 #' @examples
-#' data(msig_go)
 #' sapply(msig_go, length)
 #' msig_go$BP[1:3]
 "msig_go"
@@ -364,7 +326,6 @@
 #'
 #' @source \url{http://software.broadinstitute.org/gsea/msigdb/collections.jsp}
 #' @examples
-#' data(msig_oncogenic)
 #' length(msig_oncogenic)
 #' msig_oncogenic[1:3]
 "msig_oncogenic"
@@ -375,7 +336,6 @@
 #'
 #' @source \url{http://software.broadinstitute.org/gsea/msigdb/collections.jsp}
 #' @examples
-#' data(msig_immunologic)
 #' length(msig_immunologic)
 #' msig_immunologic[1:3]
 "msig_immunologic"

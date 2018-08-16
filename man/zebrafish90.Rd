@@ -16,7 +16,6 @@ zebrafish90
 Zebrafish gene annotations from Ensembl release 90
 }
 \examples{
-data(zebrafish90)
 zebrafish90
 group_by(zebrafish90, biotype) \%>\% summarize(n=n()) \%>\% arrange(desc(n))
 }

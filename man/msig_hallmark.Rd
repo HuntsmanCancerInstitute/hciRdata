@@ -15,7 +15,6 @@ msig_hallmark
 Hallmark gene sets in MSigDB.
 }
 \examples{
-data(msig_hallmark)
 length(msig_hallmark)
 msig_hallmark[1:3]
 }

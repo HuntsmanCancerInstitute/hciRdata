@@ -16,7 +16,6 @@ rabbit90
 Rabbit gene annotations from Ensembl release 90
 }
 \examples{
-data(rabbit90)
 rabbit90
 group_by(rabbit90, biotype) \%>\% summarize(n=n()) \%>\% arrange(desc(n))
 }

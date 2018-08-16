@@ -15,7 +15,6 @@ msig_pathways
 C2 pathways in the MSigDB.
 }
 \examples{
-data(msig_pathways)
 sapply(msig_pathways, length)
 msig_pathways$KEGG[1:3]
 }

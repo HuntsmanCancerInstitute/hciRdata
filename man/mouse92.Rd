@@ -4,7 +4,7 @@
 \name{mouse92}
 \alias{mouse92}
 \title{Mouse gene annotations from Ensembl release 92}
-\format{A tibble with 54,590 rows and 10 columns: id, gene_name, biotype, chromosome,
+\format{A tibble with 53,801 rows and 10 columns: id, gene_name, biotype, chromosome,
 start, end, strand, description, transcripts, human_homolog from MGI.}
 \source{
 \code{read_biomart_version("mouse", version = 92)}.
@@ -17,10 +17,8 @@ mouse92
 Mouse gene annotations from Ensembl release 92
 }
 \examples{
-data(mouse92)
 mouse92
 filter(mouse92[, c(1:4,10)], grepl(",", human_homolog))
-data(mouse90)
 inner_join( group_by(mouse90, biotype) \%>\% summarize(n90=n()),
             group_by(mouse92, biotype) \%>\% summarize(n92=n())) \%>\%
             mutate(diff = n92 - n90) \%>\%  arrange(desc(n92))

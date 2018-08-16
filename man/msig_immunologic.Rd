@@ -15,7 +15,6 @@ msig_immunologic
 C7 immunologic signatures in the MSigDB.
 }
 \examples{
-data(msig_immunologic)
 length(msig_immunologic)
 msig_immunologic[1:3]
 }

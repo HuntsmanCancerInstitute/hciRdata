@@ -17,7 +17,6 @@ msig_cancer
 C4 cancer sets in the MSigDB.
 }
 \examples{
-data(msig_cancer)
 sapply(msig_cancer, length)
 msig_cancer$CAR[1:3]
 }

@@ -2,3 +2,4 @@
 
 export(format_msig)
 export(read_biomart_version)
+export(read_msigdb)

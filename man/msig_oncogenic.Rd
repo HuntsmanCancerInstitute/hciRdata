@@ -15,7 +15,6 @@ msig_oncogenic
 C6 oncogenic signatures in the MSigDB.
 }
 \examples{
-data(msig_oncogenic)
 length(msig_oncogenic)
 msig_oncogenic[1:3]
 }

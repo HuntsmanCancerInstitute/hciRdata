@@ -15,7 +15,6 @@ msig_go
 C5 Gene Ontology sets in the MSigDB.
 }
 \examples{
-data(msig_go)
 sapply(msig_go, length)
 msig_go$BP[1:3]
 }

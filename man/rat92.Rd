@@ -16,9 +16,7 @@ rat92
 Rat gene annotations from Ensembl release 92
 }
 \examples{
-data(rat92)
 rat92
-data(rat90)
 inner_join( group_by(rat90, biotype) \%>\% summarize(n90=n()),
             group_by(rat92, biotype) \%>\% summarize(n92=n())) \%>\%
             mutate(diff = n92 - n90) \%>\%  arrange(desc(n92))

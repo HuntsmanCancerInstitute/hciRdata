@@ -98,10 +98,16 @@ read_biomart_version <- function( dataset="human", attributes, version = NULL, l
       }else{
          bm <- biomaRt::getBM(attributes= attributes, mart = ensembl, ...)
       }
-      message("Downloaded ", nrow(bm), " features")
+      n1 <- nrow(bm)
+      message("Downloaded ", n1, " features")
    }
    # will also drop the grouped_df class
    bm <- tibble::as_data_frame(bm)
+   if(dataset %in% c("mouse", "human")){
+      ### DROP patch in mouse and human
+      bm <- filter(bm, substr(chromosome,1,4) != "CHR_")
+     if(n1 != nrow(bm)) message("Removed ", nrow(bm) - n1, " features on patch CHR_*")
+   }
    attr(bm, "downloaded") <- Sys.Date()
    attr(bm, "version") <- version
    bm

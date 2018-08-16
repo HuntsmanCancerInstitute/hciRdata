@@ -16,7 +16,6 @@ sheep90
 Sheep gene annotations from Ensembl release 90
 }
 \examples{
-data(sheep90)
 sheep90
 group_by(sheep90, biotype) \%>\% summarize(n=n()) \%>\% arrange(desc(n))
 }

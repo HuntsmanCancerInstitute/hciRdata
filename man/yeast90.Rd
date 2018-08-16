@@ -16,7 +16,6 @@ yeast90
 Yeast (S. cerevisiae) gene annotations from Ensembl release 90
 }
 \examples{
-data(yeast90)
 yeast90
 group_by(yeast90, biotype) \%>\% summarize(n=n()) \%>\% arrange(desc(n))
 }

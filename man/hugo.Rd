@@ -15,7 +15,6 @@ hugo
 Human gene synonyms from HUGO
 }
 \examples{
-data(hugo)
 hugo
 table(hugo$source)
 }

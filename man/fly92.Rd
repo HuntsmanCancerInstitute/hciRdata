@@ -16,9 +16,7 @@ fly92
 Fruitfly gene annotations from Ensembl release 92
 }
 \examples{
-data(fly92)
 fly92
-data(fly90)
 inner_join( group_by(fly90, biotype) \%>\% summarize(n90=n()),
             group_by(fly92, biotype) \%>\% summarize(n92=n())) \%>\%
             mutate(diff = n92 - n90) \%>\%  arrange(desc(n92))

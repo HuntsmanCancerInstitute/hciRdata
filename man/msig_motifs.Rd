@@ -16,7 +16,6 @@ msig_motifs
 C3 motifs in the MSigDB.
 }
 \examples{
-data(msig_motifs)
 sapply(msig_motifs, length)
 msig_motifs$MIR[1:3]
 }

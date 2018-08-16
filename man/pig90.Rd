@@ -16,7 +16,6 @@ pig90
 Pig gene annotations from Ensembl release 90
 }
 \examples{
-data(pig90)
 pig90
 group_by(pig90, biotype) \%>\% summarize(n=n()) \%>\% arrange(desc(n))
 }

@@ -22,11 +22,10 @@ mgi
 Mouse and human homologs from MGI
 }
 \examples{
-data(mgi)
 mgi
 filter(mgi, n>1)                     # 2 or more homologs
 prop.table(table( mgi$human == toupper(mgi$mouse))) # 87\% are the same
-data(mouse92)                     # 127 missing in Ensembl version 92
+# 127 missing in Ensembl version 92
 filter(mgi, !mouse \%in\% mouse92$gene_name)
 attr(mgi, "downloaded")
 attr(mgi, "version")
