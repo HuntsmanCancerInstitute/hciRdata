@@ -1,13 +1,11 @@
 Package: hciRdata
 Title: Datasets for hciR
-Version: 1.4
-Date: 2018-10-24
+Version: 1.96
 Author: Chris Stubben
 Maintainer: Chris Stubben <chris.stubben@hci.utah.edu>
 Depends:
-    R (>= 3.4.2),
     hciR
 License: GPL-3
 Description: This package contain datasets from Ensembl, HUGO, MGI, and MSigDB.
 LazyData: true
-RoxygenNote: 6.0.1
+RoxygenNote: 6.1.1
