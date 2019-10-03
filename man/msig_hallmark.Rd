@@ -3,7 +3,7 @@
 \docType{data}
 \name{msig_hallmark}
 \alias{msig_hallmark}
-\title{Hallmark gene sets in MSigDB.}
+\title{Hallmark gene sets in MSigDB 7.0.}
 \format{A list with 50 gene sets.  See \code{data_raw/msigdb.R} for details.}
 \source{
 \url{http://software.broadinstitute.org/gsea/msigdb/collections.jsp}
@@ -12,7 +12,7 @@
 msig_hallmark
 }
 \description{
-Hallmark gene sets in MSigDB.
+Hallmark gene sets in MSigDB 7.0.
 }
 \examples{
 length(msig_hallmark)

@@ -1,45 +1,55 @@
 ## Ensembl annotations
 
-    mouse96 <- read_biomart("mouse")
-    human96 <- read_biomart("human")
-      rat96 <- read_biomart("rat")
-      fly96 <- read_biomart("fly")
-    sheep96 <- read_biomart("sheep")
-      pig96 <- read_biomart("pig")
-   rabbit96 <- read_biomart("rabbit")
-     worm96 <- read_biomart("worm")
-   yeast96 <- read_biomart("yeast")
-zebrafish96 <- read_biomart("zebrafish")
- elephant96 <- read_biomart("lafricana")
- vervet96 <- read_biomart("csabaeus")
+    mouse98 <- read_biomart("mouse")
+    human98 <- read_biomart("human")
+      rat98 <- read_biomart("rat")
+      fly98 <- read_biomart("fly")
+    sheep98 <- read_biomart("sheep")
+      pig98 <- read_biomart("pig")
+   rabbit98 <- read_biomart("rabbit")
+     worm98 <- read_biomart("worm")
+   yeast98 <- read_biomart("yeast")
+zebrafish98 <- read_biomart("zebrafish")
+ elephant98 <- read_biomart("lafricana")
+ vervet98 <- read_biomart("csabaeus")
+
+nrow(human98)
+nrow(mouse98)
+nrow(fly98)
+nrow(rat98)
+nrow(pig98)
+nrow(sheep98)
+nrow(rabbit98)
+nrow(vervet98)
+nrow(zebrafish98)
+nrow(worm98)
+nrow(yeast98)
+nrow(elephant98)
 
 
+### ADD human homologs to mouse
 
-### ADD human homologs to mmu
-
-mouse96$human_homolog <- ""
-n <- match(mouse96$gene_name, mgi_6.13$mouse)
-mouse96$human_homolog <- mgi_6.13$human[n]
+mouse98$human_homolog <- ""
+n <- match(mouse98$gene_name, mgi$mouse)
+mouse98$human_homolog <- mgi$human[n]
 
 
 
 ##save
 
 
-save(mouse96, file = "mouse96.rda")
-save(human96, file = "human96.rda")
-save(  rat96, file =   "rat96.rda")
-save(  fly96, file =   "fly96.rda")
-save(sheep96, file = "sheep96.rda")
-save(  pig96, file =   "pig96.rda")
-save(rabbit96, file="rabbit96.rda")
-save(zebrafish96, file = "zebrafish96.rda")
-save( worm96, file =  "worm96.rda")
-save(yeast96, file = "yeast96.rda")
-save(vervet96, file = "vervet96.rda")
-save(elephant96, file = "elephant96.rda")
-
-
+save(mouse98, file = "mouse98.rda", version=2)
+save(human98, file = "human98.rda", version=2)
+save(  rat98, file =   "rat98.rda", version=2)
+save(  fly98, file =   "fly98.rda", version=2)
+save(sheep98, file = "sheep98.rda", version=2)
+save(  pig98, file =   "pig98.rda", version=2)
+save(rabbit98, file="rabbit98.rda", version=2)
+save(zebrafish98, file = "zebrafish98.rda", version=2)
+save( worm98, file =  "worm98.rda", version=2)
+save(yeast98, file = "yeast98.rda", version=2)
+save(vervet98, file = "vervet98.rda", version=2)
+save(elephant98, file = "elephant98.rda", version=2)
 
 
 

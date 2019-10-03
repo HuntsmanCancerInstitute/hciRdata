@@ -3,7 +3,7 @@
 \docType{data}
 \name{msig_oncogenic}
 \alias{msig_oncogenic}
-\title{C6 oncogenic signatures in the MSigDB.}
+\title{C6 oncogenic signatures in the MSigDB 7.0.}
 \format{A list with 189 gene sets.  See \code{data_raw/msigdb.R} for details.}
 \source{
 \url{http://software.broadinstitute.org/gsea/msigdb/collections.jsp}
@@ -12,7 +12,7 @@
 msig_oncogenic
 }
 \description{
-C6 oncogenic signatures in the MSigDB.
+C6 oncogenic signatures in the MSigDB 7.0.
 }
 \examples{
 length(msig_oncogenic)

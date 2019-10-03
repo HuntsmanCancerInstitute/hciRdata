@@ -3,7 +3,7 @@
 \docType{data}
 \name{msig_immunologic}
 \alias{msig_immunologic}
-\title{C7 immunologic signatures in the MSigDB.}
+\title{C7 immunologic signatures in the MSigDB 7.0.}
 \format{A list with 4872 gene sets.  See \code{data_raw/msigdb.R} for details.}
 \source{
 \url{http://software.broadinstitute.org/gsea/msigdb/collections.jsp}
@@ -12,7 +12,7 @@
 msig_immunologic
 }
 \description{
-C7 immunologic signatures in the MSigDB.
+C7 immunologic signatures in the MSigDB 7.0.
 }
 \examples{
 length(msig_immunologic)

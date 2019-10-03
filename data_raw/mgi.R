@@ -2,17 +2,11 @@
 
 # http://www.informatics.jax.org/mgihome/projects/overview.shtml
 
-
-## download May 22, 2018
-
 ## last database update
-# 04/16/2019
-# MGI 6.13
 
-## 10/09/2018
-# MGI 6.12
-
-# mgi_6.12 <- mgi
+# 09/25/2019 MGI 6.14
+# 04/16/2019 MGI 6.13
+# 10/09/2018 MGI 6.12
 
 
 url <- "http://www.informatics.jax.org/downloads/reports/HMD_HumanPhenotype.rpt"
@@ -23,11 +17,11 @@ x <- read_tsv(url, col_names=c("human", "entrez_gene", "homologene", "x1",  "mou
 table(duplicated(x$mouse))
 
 # Group by gene names
-mgi_6.13 <- group_by(x, id, mouse) %>% summarize(n=n(), human = paste(human, collapse=",")) %>%
+mgi <- group_by(x, id, mouse) %>% summarize(n=n(), human = paste(human, collapse=",")) %>%
  ungroup() %>% arrange( grepl("Rik$", mouse), mouse)
 #  genes with 2 or more homologs
-filter(mgi_6.13, n>1)
+filter(mgi, n>1)
 
-attr(mgi_6.13, "downloaded") <- Sys.Date()
-save(mgi_6.13, file="mgi_6.13.rda")
-save(mgi_6.12, file="mgi_6.12.rda")
+attr(mgi, "downloaded") <- Sys.Date()
+
+save(mgi, file="mgi.rda")
