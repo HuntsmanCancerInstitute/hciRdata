@@ -34,9 +34,18 @@ n <- match(mouse98$gene_name, mgi$mouse)
 mouse98$human_homolog <- mgi$human[n]
 
 
+## Descriptions are now missing from fly
+
+# wget ftp://ftp.flybase.org/releases/FB2019_05/precomputed_files/synonyms/fb_synonym_fb_2019_05.tsv.gz
+# grep "^FBgn" fb_synonym_fb_2019_05.tsv | cut -f1-4 > fly_genes.txt
+
+fly <- read_tsv("fly_genes.txt", col_names=c("id", "abbrev", "name", "description"))
+n <- match(fly98$id, fly$id)
+fly98$description <- fly$description[n]
+
+
 
 ##save
-
 
 save(mouse98, file = "mouse98.rda", version=2)
 save(human98, file = "human98.rda", version=2)
@@ -50,6 +59,8 @@ save( worm98, file =  "worm98.rda", version=2)
 save(yeast98, file = "yeast98.rda", version=2)
 save(vervet98, file = "vervet98.rda", version=2)
 save(elephant98, file = "elephant98.rda", version=2)
+
+
 
 
 
