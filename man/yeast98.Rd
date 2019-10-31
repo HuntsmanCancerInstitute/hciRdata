@@ -7,7 +7,7 @@
 \format{A tibble with 7,127 rows and 9 columns: id, gene_name, biotype, chromosome,
 start, end, strand, description, transcripts}
 \source{
-\code{read_biomart("yeast", version = 98)}
+\code{read_biomart("yeast", version = 98)}. Gene names have been replaced
 }
 \usage{
 yeast98

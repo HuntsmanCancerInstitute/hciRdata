@@ -57,7 +57,7 @@
 #'
 #' @format A tibble with 27,054 rows and 9 columns: id, gene_name, biotype, chromosome,
 #' start, end, strand, description, transcripts
-#' @source \code{read_biomart("sheep", version = 98)}
+#' @source \code{read_biomart("sheep", version = 98)}.
 #' @examples
 #' sheep98
 #' group_by(sheep98, biotype) %>% summarize(n=n()) %>% arrange(desc(n))
@@ -107,7 +107,8 @@
 #'
 #' @format A tibble with 7,127 rows and 9 columns: id, gene_name, biotype, chromosome,
 #' start, end, strand, description, transcripts
-#' @source \code{read_biomart("yeast", version = 98)}
+#' @source \code{read_biomart("yeast", version = 98)}. Gene names have been replaced
+# with names from SGD.
 #' @examples
 #' yeast98
 #' group_by(yeast98, biotype) %>% summarize(n=n()) %>% arrange(desc(n))

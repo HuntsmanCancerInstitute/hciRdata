@@ -33,6 +33,17 @@ mouse98$human_homolog <- ""
 n <- match(mouse98$gene_name, mgi$mouse)
 mouse98$human_homolog <- mgi$human[n]
 
+### 68% of yeast genes names are missing, replace with SGD names
+
+# wget https://downloads.yeastgenome.org/curation/chromosomal_feature/SGD_features.tab
+
+sgd <- read_tsv("SGD_features.txt", col_names = c("sgdid", "biotype", "qualifier",
+"gene_name", "standard", "alias", "parent", "other_sgid", "chromosome",
+"start", "stop", "strand", "pos", "coord", "seq", "description"), guess_max=10000)
+
+n <- match(yeast98$id, sgd$gene_name)
+yeast98$gene_name<- sgd$standard[n]
+
 
 ## Descriptions are now missing from fly
 
@@ -42,8 +53,6 @@ mouse98$human_homolog <- mgi$human[n]
 fly <- read_tsv("fly_genes.txt", col_names=c("id", "abbrev", "name", "description"))
 n <- match(fly98$id, fly$id)
 fly98$description <- fly$description[n]
-
-
 
 ##save
 
@@ -61,11 +70,7 @@ save(vervet98, file = "vervet98.rda", version=2)
 save(elephant98, file = "elephant98.rda", version=2)
 
 
-
-
-
-
-## ADD ensembl homologs?
+## ADD ensembl homologs to other tables?
 
  v1 <- read_biomart("csabaeus", attributes = c("ensembl_gene_id", "external_gene_name",
  "hsapiens_homolog_ensembl_gene", "hsapiens_homolog_associated_gene_name",
