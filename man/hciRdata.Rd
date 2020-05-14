@@ -3,7 +3,6 @@
 \docType{package}
 \name{hciRdata}
 \alias{hciRdata}
-\alias{hciRdata-package}
 \title{Datasets for differential expression and pathway analyses at HCI}
 \description{
 The feature annotations for the latest Ensembl 98 release are in human98,

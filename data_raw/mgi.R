@@ -4,6 +4,7 @@
 
 ## last database update
 
+# 5/05/2020 MGI 6.15
 # 09/25/2019 MGI 6.14
 # 04/16/2019 MGI 6.13
 # 10/09/2018 MGI 6.12
@@ -19,7 +20,7 @@ table(duplicated(x$mouse))
 # Group by gene names
 mgi <- group_by(x, id, mouse) %>% summarize(n=n(), human = paste(human, collapse=",")) %>%
  ungroup() %>% arrange( grepl("Rik$", mouse), mouse)
-#  genes with 2 or more homologs
+# 206 genes with 2 or more homologs
 filter(mgi, n>1)
 
 attr(mgi, "downloaded") <- Sys.Date()

@@ -1,39 +1,39 @@
 ## Ensembl annotations
 
-    mouse98 <- read_biomart("mouse")
-    human98 <- read_biomart("human")
-      rat98 <- read_biomart("rat")
-      fly98 <- read_biomart("fly")
-    sheep98 <- read_biomart("sheep")
-      pig98 <- read_biomart("pig")
-   rabbit98 <- read_biomart("rabbit")
-     worm98 <- read_biomart("worm")
-   yeast98 <- read_biomart("yeast")
-zebrafish98 <- read_biomart("zebrafish")
- elephant98 <- read_biomart("lafricana")
- vervet98 <- read_biomart("csabaeus")
+    mouse100 <- read_biomart("mouse")
+    human100 <- read_biomart("human")
+      rat100 <- read_biomart("rat")
+      fly100 <- read_biomart("fly")
+    sheep100 <- read_biomart("sheep")
+      pig100 <- read_biomart("pig")
+   rabbit100 <- read_biomart("rabbit")
+     worm100 <- read_biomart("worm")
+   yeast100 <- read_biomart("yeast")
+zebrafish100 <- read_biomart("zebrafish")
+ elephant100 <- read_biomart("lafricana")
+ vervet100 <- read_biomart("csabaeus")
 
-nrow(human98)
-nrow(mouse98)
-nrow(fly98)
-nrow(rat98)
-nrow(pig98)
-nrow(sheep98)
-nrow(rabbit98)
-nrow(vervet98)
-nrow(zebrafish98)
-nrow(worm98)
-nrow(yeast98)
-nrow(elephant98)
+nrow(human100)
+nrow(mouse100)
+nrow(fly100)
+nrow(rat100)
+nrow(pig100)
+nrow(sheep100)
+nrow(rabbit100)
+nrow(vervet100)
+nrow(zebrafish100)
+nrow(worm100)
+nrow(yeast100)
+nrow(elephant100)
 
 
 ### ADD human homologs to mouse
 
-mouse98$human_homolog <- ""
-n <- match(mouse98$gene_name, mgi$mouse)
-mouse98$human_homolog <- mgi$human[n]
+mouse100$human_homolog <- ""
+n <- match(mouse100$gene_name, mgi$mouse)
+mouse100$human_homolog <- mgi$human[n]
 
-### 68% of yeast genes names are missing, replace with SGD names
+### 68% of yeast genes names are missing, replace with SGD names.  Fixed in 100
 
 # wget https://downloads.yeastgenome.org/curation/chromosomal_feature/SGD_features.tab
 
@@ -41,8 +41,8 @@ sgd <- read_tsv("SGD_features.txt", col_names = c("sgdid", "biotype", "qualifier
 "gene_name", "standard", "alias", "parent", "other_sgid", "chromosome",
 "start", "stop", "strand", "pos", "coord", "seq", "description"), guess_max=10000)
 
-n <- match(yeast98$id, sgd$gene_name)
-yeast98$gene_name<- sgd$standard[n]
+n <- match(yeast100$id, sgd$gene_name)
+yeast100$gene_name<- sgd$standard[n]
 
 
 ## Descriptions are now missing from fly
@@ -50,24 +50,25 @@ yeast98$gene_name<- sgd$standard[n]
 # wget ftp://ftp.flybase.org/releases/FB2019_05/precomputed_files/synonyms/fb_synonym_fb_2019_05.tsv.gz
 # grep "^FBgn" fb_synonym_fb_2019_05.tsv | cut -f1-4 > fly_genes.txt
 
-fly <- read_tsv("fly_genes.txt", col_names=c("id", "abbrev", "name", "description"))
-n <- match(fly98$id, fly$id)
-fly98$description <- fly$description[n]
+table(is.na(fly100$description))
+fly <- read_tsv("data_raw/fly_genes.txt", col_names=c("id", "abbrev", "name", "description"))
+n <- match(fly100$id, fly$id)
+fly100$description <- fly$description[n]
 
 ##save
 
-save(mouse98, file = "mouse98.rda", version=2)
-save(human98, file = "human98.rda", version=2)
-save(  rat98, file =   "rat98.rda", version=2)
-save(  fly98, file =   "fly98.rda", version=2)
-save(sheep98, file = "sheep98.rda", version=2)
-save(  pig98, file =   "pig98.rda", version=2)
-save(rabbit98, file="rabbit98.rda", version=2)
-save(zebrafish98, file = "zebrafish98.rda", version=2)
-save( worm98, file =  "worm98.rda", version=2)
-save(yeast98, file = "yeast98.rda", version=2)
-save(vervet98, file = "vervet98.rda", version=2)
-save(elephant98, file = "elephant98.rda", version=2)
+save(mouse100, file = "mouse100.rda", version=2)
+save(human100, file = "human100.rda", version=2)
+save(  rat100, file =   "rat100.rda", version=2)
+save(  fly100, file =   "fly100.rda", version=2)
+save(sheep100, file = "sheep100.rda", version=2)
+save(  pig100, file =   "pig100.rda", version=2)
+save(rabbit100, file="rabbit100.rda", version=2)
+save(zebrafish100, file = "zebrafish100.rda", version=2)
+save( worm100, file =  "worm100.rda", version=2)
+save(yeast100, file = "yeast100.rda", version=2)
+save(vervet100, file = "vervet100.rda", version=2)
+save(elephant100, file = "elephant100.rda", version=2)
 
 
 ## ADD ensembl homologs to other tables?

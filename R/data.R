@@ -1,132 +1,132 @@
-#' Human gene annotations from Ensembl release 98
+#' Human gene annotations from Ensembl release 100
 #'
 #' @format A tibble with 60,623 rows and 9 columns: id, gene_name, biotype, chromosome,
 #' start, end, strand, description, transcripts
-#' @source \code{read_biomart("human", version = 98)}
+#' @source \code{read_biomart("human", version = 100)}
 #' @examples
-#' human98
-#' attr(human98, "downloaded")
-#' group_by(human98, biotype) %>% summarize(n=n()) %>% arrange(desc(n))
-"human98"
+#' human100
+#' attr(human100, "downloaded")
+#' group_by(human100, biotype) %>% summarize(n=n()) %>% arrange(desc(n))
+"human100"
 
-#' Mouse gene annotations from Ensembl release 98
+#' Mouse gene annotations from Ensembl release 100
 #'
 #' @format A tibble with 55,421 rows and 10 columns: id, gene_name, biotype, chromosome,
 #' start, end, strand, description, transcripts, human_homolog from MGI 6.14.
-#' @source \code{read_biomart("mouse", version = 98)}.
+#' @source \code{read_biomart("mouse", version = 100)}.
 #'  the \code{mouse.R} file in the \code{data-raw} directory for details.
 #' @examples
-#' mouse98
-#' filter(mouse98[, c(1:4,10)], grepl(",", human_homolog))
-#' group_by(mouse98, biotype) %>%
+#' mouse100
+#' filter(mouse100[, c(1:4,10)], grepl(",", human_homolog))
+#' group_by(mouse100, biotype) %>%
 #'  summarize(n=n(), human_homologs = sum(!is.na(human_homolog))) %>%
 #'   arrange(desc(n))
-"mouse98"
+"mouse100"
 
-#' Fruitfly gene annotations from Ensembl release 98
+#' Fruitfly gene annotations from Ensembl release 100
 #'
 #' @format A tibble with 17,753 rows and 9 columns: id, gene_name, biotype, chromosome,
 #' start, end, strand, description, transcripts
-#' @source \code{read_biomart("fly", version = 98)}
+#' @source \code{read_biomart("fly", version = 100)}
 #' @examples
-#' fly98
-#' group_by(fly98, biotype) %>% summarize(n=n()) %>% arrange(desc(n))
-"fly98"
+#' fly100
+#' group_by(fly100, biotype) %>% summarize(n=n()) %>% arrange(desc(n))
+"fly100"
 
-#' Rat gene annotations from Ensembl release 98
+#' Rat gene annotations from Ensembl release 100
 #'
 #' @format A tibble with 32,883 rows and 9 columns: id, gene_name, biotype, chromosome,
 #' start, end, strand, description, transcripts
-#' @source \code{read_biomart("rat", version = 98)}
+#' @source \code{read_biomart("rat", version = 100)}
 #' @examples
-#' rat98
-#' group_by(rat98, biotype) %>% summarize(n=n()) %>% arrange(desc(n))
-"rat98"
+#' rat100
+#' group_by(rat100, biotype) %>% summarize(n=n()) %>% arrange(desc(n))
+"rat100"
 
-#' Pig gene annotations from Ensembl release 98
+#' Pig gene annotations from Ensembl release 100
 #'
 #' @format A tibble with 31,907 rows and 9 columns: id, gene_name, biotype, chromosome,
 #' start, end, strand, description, transcripts
-#' @source \code{read_biomart("pig", version = 98)}
+#' @source \code{read_biomart("pig", version = 100)}
 #' @examples
-#' pig98
-#' group_by(pig98, biotype) %>% summarize(n=n()) %>% arrange(desc(n))
-"pig98"
+#' pig100
+#' group_by(pig100, biotype) %>% summarize(n=n()) %>% arrange(desc(n))
+"pig100"
 
-#' Sheep gene annotations from Ensembl release 98
+#' Sheep gene annotations from Ensembl release 100
 #'
 #' @format A tibble with 27,054 rows and 9 columns: id, gene_name, biotype, chromosome,
 #' start, end, strand, description, transcripts
-#' @source \code{read_biomart("sheep", version = 98)}.
+#' @source \code{read_biomart("sheep", version = 100)}.
 #' @examples
-#' sheep98
-#' group_by(sheep98, biotype) %>% summarize(n=n()) %>% arrange(desc(n))
-"sheep98"
+#' sheep100
+#' group_by(sheep100, biotype) %>% summarize(n=n()) %>% arrange(desc(n))
+"sheep100"
 
-#' Rabbit gene annotations from Ensembl release 98
+#' Rabbit gene annotations from Ensembl release 100
 #'
 #' @format A tibble with 29,587 rows and 9 columns: id, gene_name, biotype, chromosome,
 #' start, end, strand, description, transcripts
-#' @source \code{read_biomart("rabbit", version = 98)}
+#' @source \code{read_biomart("rabbit", version = 100)}
 #' @examples
-#' rabbit98
-#' group_by(rabbit98, biotype) %>% summarize(n=n()) %>% arrange(desc(n))
-"rabbit98"
+#' rabbit100
+#' group_by(rabbit100, biotype) %>% summarize(n=n()) %>% arrange(desc(n))
+"rabbit100"
 
-#' Vervet gene annotations from Ensembl release 98
+#' Vervet gene annotations from Ensembl release 100
 #'
-#' @format A tibble with 27,985 rows and 10 columns: id, gene_name, biotype, chromosome,
+#' @format A tibble with 27,1005 rows and 10 columns: id, gene_name, biotype, chromosome,
 #' start, end, strand, description, transcripts, and human_homolog with maximum percent
 #' identity from Ensembl
-#' @source \code{read_biomart("vervet", version = 98)}
+#' @source \code{read_biomart("vervet", version = 100)}
 #' @examples
-#' vervet98
-"vervet98"
+#' vervet100
+"vervet100"
 
-#' Roundworm (C. elegans) gene annotations from Ensembl release 98
+#' Roundworm (C. elegans) gene annotations from Ensembl release 100
 #'
 #' @format A tibble with 46,904 rows and 9 columns: id, gene_name, biotype, chromosome,
 #' start, end, strand, description, transcripts
-#' @source \code{read_biomart("roundworm", version = 98)}
+#' @source \code{read_biomart("roundworm", version = 100)}
 #' @examples
-#' worm98
-#' group_by(worm98, biotype) %>% summarize(n=n()) %>% arrange(desc(n))
-"worm98"
+#' worm100
+#' group_by(worm100, biotype) %>% summarize(n=n()) %>% arrange(desc(n))
+"worm100"
 
-#' Zebrafish gene annotations from Ensembl release 98
+#' Zebrafish gene annotations from Ensembl release 100
 #'
 #' @format A tibble with 35,117 rows and 9 columns: id, gene_name, biotype, chromosome,
 #' start, end, strand, description, transcripts
-#' @source \code{read_biomart("zebrafish", version = 98)}
+#' @source \code{read_biomart("zebrafish", version = 100)}
 #' @examples
-#' zebrafish98
-#' group_by(zebrafish98, biotype) %>% summarize(n=n()) %>% arrange(desc(n))
-"zebrafish98"
+#' zebrafish100
+#' group_by(zebrafish100, biotype) %>% summarize(n=n()) %>% arrange(desc(n))
+"zebrafish100"
 
-#' Yeast (S. cerevisiae) gene annotations from Ensembl release 98
+#' Yeast (S. cerevisiae) gene annotations from Ensembl release 100
 #'
 #' @format A tibble with 7,127 rows and 9 columns: id, gene_name, biotype, chromosome,
 #' start, end, strand, description, transcripts
-#' @source \code{read_biomart("yeast", version = 98)}. Gene names have been replaced
+#' @source \code{read_biomart("yeast", version = 100)}. Gene names have been replaced
 # with names from SGD.
 #' @examples
-#' yeast98
-#' group_by(yeast98, biotype) %>% summarize(n=n()) %>% arrange(desc(n))
-"yeast98"
+#' yeast100
+#' group_by(yeast100, biotype) %>% summarize(n=n()) %>% arrange(desc(n))
+"yeast100"
 
-#' Elephant gene annotations from Ensembl release 98
+#' Elephant gene annotations from Ensembl release 100
 #'
 #' @format A tibble with 23,245 rows and 9 columns: id, gene_name, biotype, chromosome,
 #' start, end, strand, description, transcripts
-#' @source \code{read_biomart("yeast", version = 98)}
+#' @source \code{read_biomart("yeast", version = 100)}
 #' @examples
-#' elephant98
-#' group_by(elephant98, biotype) %>% summarize(n=n()) %>% arrange(desc(n))
-"elephant98"
+#' elephant100
+#' group_by(elephant100, biotype) %>% summarize(n=n()) %>% arrange(desc(n))
+"elephant100"
 
-#' Mouse and human homologs from MGI 6.14
+#' Mouse and human homologs from MGI 6.15
 #'
-#' @format A tibble with 18,479 rows and 4 variables:
+#' @format A tibble with 18,497 rows and 4 variables:
 #' \describe{
 #'   \item{id}{ MGI ID }
 #'   \item{mouse}{ Mouse gene symbol }

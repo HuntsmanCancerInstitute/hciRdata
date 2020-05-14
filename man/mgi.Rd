@@ -3,8 +3,8 @@
 \docType{data}
 \name{mgi}
 \alias{mgi}
-\title{Mouse and human homologs from MGI 6.14}
-\format{A tibble with 18,479 rows and 4 variables:
+\title{Mouse and human homologs from MGI 6.15}
+\format{A tibble with 18,497 rows and 4 variables:
 \describe{
   \item{id}{ MGI ID }
   \item{mouse}{ Mouse gene symbol }
@@ -19,7 +19,7 @@ See the \code{data-raw} directory for code to download and group by mouse gene.
 mgi
 }
 \description{
-Mouse and human homologs from MGI 6.14
+Mouse and human homologs from MGI 6.15
 }
 \examples{
 mgi
