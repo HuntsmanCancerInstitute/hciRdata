@@ -3,9 +3,11 @@
 \docType{data}
 \name{msig_motifs}
 \alias{msig_motifs}
-\title{C3 motifs in the MSigDB 7.0.}
-\format{A list of 2 lists including transcription factor and miRNA targets.
-See \code{data_raw/msigdb.R} for details.}
+\title{C3 motifs in the MSigDB 7.2.}
+\format{
+A list of 2 lists including transcription factor and miRNA targets.
+See \code{data_raw/msigdb.R} for details.
+}
 \source{
 \url{http://software.broadinstitute.org/gsea/msigdb/collections.jsp}
 }
@@ -13,7 +15,7 @@ See \code{data_raw/msigdb.R} for details.}
 msig_motifs
 }
 \description{
-C3 motifs in the MSigDB 7.0.
+C3 motifs in the MSigDB 7.2.
 }
 \examples{
 sapply(msig_motifs, length)

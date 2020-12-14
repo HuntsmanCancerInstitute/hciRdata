@@ -3,8 +3,10 @@
 \docType{data}
 \name{hugo}
 \alias{hugo}
-\title{Human gene synonyms from HUGO downloaded on Oct 3, 2019}
-\format{A tibble with 42,793 rows and 3 columns: name, synonym, source column}
+\title{Human gene synonyms from HUGO downloaded on Dec 14, 2020}
+\format{
+A tibble with 3 columns: name, synonym, source column
+}
 \source{
 \url{https://www.genenames.org/}
 }
@@ -12,7 +14,7 @@
 hugo
 }
 \description{
-Human gene synonyms from HUGO downloaded on Oct 3, 2019
+Human gene synonyms from HUGO downloaded on Dec 14, 2020
 }
 \examples{
 hugo

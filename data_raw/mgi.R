@@ -4,6 +4,7 @@
 
 ## last database update
 
+# 12/08/2020 MGI 6.16
 # 5/05/2020 MGI 6.15
 # 09/25/2019 MGI 6.14
 # 04/16/2019 MGI 6.13
@@ -25,4 +26,4 @@ filter(mgi, n>1)
 
 attr(mgi, "downloaded") <- Sys.Date()
 
-save(mgi, file="mgi.rda")
+save(mgi, file="mgi.rda", version=2)

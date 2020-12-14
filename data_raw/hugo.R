@@ -20,4 +20,4 @@ filter(hugo_raw, !is.na(synonyms), biotype == "protein-coding gene") %>%
 
 #filter(hugo, !name %in% human92$gene_name) %>% pull(name) %>% unique()
 
-save(hugo, file = "hugo.rda")
+save(hugo, file = "hugo.rda", version=2)

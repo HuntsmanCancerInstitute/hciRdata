@@ -3,10 +3,12 @@
 \docType{data}
 \name{msig_cancer}
 \alias{msig_cancer}
-\title{C4 cancer sets in the MSigDB 7.0.}
-\format{A list of 5 lists including CAR (Novartis carcinoma compendium),
+\title{C4 cancer sets in the MSigDB 7.2.}
+\format{
+A list of 5 lists including CAR (Novartis carcinoma compendium),
 GCM (Global Cancer Map), GNF2 (Human tissue compendium),  MODULE (Gene sets from Segal 2004),
-and MORF (unpublished compendium).  See \code{data_raw/msigdb.R} for details.}
+and MORF (unpublished compendium).  See \code{data_raw/msigdb.R} for details.
+}
 \source{
 \url{http://software.broadinstitute.org/gsea/msigdb/collections.jsp}
 }
@@ -14,7 +16,7 @@ and MORF (unpublished compendium).  See \code{data_raw/msigdb.R} for details.}
 msig_cancer
 }
 \description{
-C4 cancer sets in the MSigDB 7.0.
+C4 cancer sets in the MSigDB 7.2.
 }
 \examples{
 sapply(msig_cancer, length)

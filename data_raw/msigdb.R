@@ -1,35 +1,30 @@
-# MsigDB 6.1
-# downloaded April 20, 2018
-
 # Download from http://software.broadinstitute.org/gsea/msigdb/collections.jsp
-# and save to data_raw/msigdb
 
 
 #------------------------
 # H HALLMARK
-x1 <- read_msigdb("h.all.v7.0.symbols.gmt")
+x1 <- read_msigdb("h.all.v7.2.symbols.gmt")
 x1 <- lapply(x1, sort)
 
 x <- unique( unlist(x1))
 
-#8 genes missing from human version 98
-y <- sort( x[!x %in% human98$gene_name] )
+#2 genes missing from human version 102
+y <- sort( x[!x %in% human102$gene_name] )
 
 ## 5 with synonym in HUGO
 z <- filter(hugo, synonym %in% y)
-# AKAP2 is now a fusion of PALM2-AKAP2
-z <- bind_rows(z, tibble(name="PALM2-AKAP2", synonym="AKAP2"))
 
-## 2 missing
+## zero missing
 dropGenes <- y[!y %in% z$synonym]
 # [1] "AC004086.1" "AC091021.1"
 
-## replace missing gene names in Ensembl with HUGO name and drop 3 missing from both lists (Ensembl and HUGO)
+## replace missing gene names in Ensembl with HUGO name  (and drop missing from both lists)
 msig_hallmark <- lapply(x1, function(x)
     left_join(tibble(synonym =x), z, by = "synonym") %>%
     mutate(synonym= ifelse(is.na(name), synonym, name)) %>%
-    filter(!synonym %in% dropGenes )
-    %>% pull(1)  )
+    filter(!synonym %in% dropGenes ) %>%
+	pull(1)  )
+
 
 names(msig_hallmark) <- format_msig(names(msig_hallmark))
 
@@ -38,17 +33,20 @@ names(msig_hallmark) <- format_msig(names(msig_hallmark))
 
 #------------------------
 # C2 Canonical pathways
-x2 <- read_msigdb("c2.cp.v7.0.symbols.gmt")
+x2 <- read_msigdb("c2.cp.v7.2.symbols.gmt")
 
+# new wikipathways
 sapply(x2, length)
-#BIOCARTA     KEGG     NABA      PID REACTOME       SA      SIG       ST      WNT
+#BIOCARTA     KEGG     NABA      PID REACTOME       SA      SIG       ST      WNT       WP
 #     217      186       10      196      674       10        8       27        1
+@     292      186       10      196     1554       10        8       27        1      587
+
 
 update_msig_list <- function(x2, format = TRUE){
  for(i in 1:length(x2)){
    x2[[i]] <- lapply(x2[[i]], sort)
    x <- unique( unlist(x2[[i]]))
-   y <- sort( x[!x %in% human98$gene_name] )
+   y <- sort( x[!x %in% human102$gene_name] )
    z <- filter(hugo, synonym %in% y)
    dropGenes <- y[!y %in% hugo$synonym]
    message(names(x2[i]), ": ", length(y), " genes missing (", length(dropGenes), " without a match)")
@@ -67,7 +65,7 @@ msig_pathways <- update_msig_list(x2)
 # C3 MOTIFS
 
 # TFT: transcription factor targets
-x3a <- read_msigdb("c3.tft.v7.0.symbols.gmt")
+x3a <- read_msigdb("c3.tft.v7.2.symbols.gmt")
 
 ## flatten list of lists
 # table( sapply(x3, length))
@@ -76,7 +74,7 @@ x3a <- read_msigdb("c3.tft.v7.0.symbols.gmt")
 
 
 # MIR: microRNA targets
-x3b  <- read_msigdb("c3.mir.v7.0.symbols.gmt")
+x3b  <- read_msigdb("c3.mir.v7.2.symbols.gmt")
 
 x3 <- list(TFT = unlist(x3a, recursive=FALSE),
             MIR= unlist(x3b, recursive=FALSE))
@@ -89,7 +87,7 @@ msig_motifs <- update_msig_list(x3, format = FALSE)
 #------------------------
 #  C4 computational gene sets  (cancer)
 
-x4 <- read_msigdb("c4.all.v7.0.symbols.gmt")
+x4 <- read_msigdb("c4.all.v7.2.symbols.gmt")
 #sapply(x4, length)
 #   CAR    GCM   GNF2 MODULE   MORF
 #     6     82    146    431    193
@@ -97,38 +95,27 @@ x4 <- read_msigdb("c4.all.v7.0.symbols.gmt")
 # change 1 to MODULE.001
 names(x4$MODULE) <- paste0( "MODULE.", stringr::str_pad(names(x4$MODULE), 3, "left", "0"))
 
-# CAR: Novartis carcinoma compendium (Novartis).
-# GCM: Global Cancer Map (Broad Institute).
-# GNF2: Human tissue compendium (Novartis).
-# MODULE: Gene sets defined by Segal et al. 2004.
-# MORF: An unpublished compendium of gene expression data sets
 
 msig_cancer <- update_msig_list(x4, format = FALSE)
-# CAR: 4 genes missing (0 without a match)
-# GCM: 83 genes missing (5 without a match)
-# GNF2: 60 genes missing (5 without a match)
-# MODULE: 427 genes missing (82 without a match)
-# MORF: 115 genes missing (24 without a match)
+
 
 
 #------------------------
 #  C5 Gene Ontology (GO) gene sets  (need 3 separate files)
 
-bp <- read_msigdb("c5.bp.v7.0.symbols.gmt")
-cc <- read_msigdb("c5.cc.v7.0.symbols.gmt")
-mf <- read_msigdb("c5.mf.v7.0.symbols.gmt")
+bp <- read_msigdb("c5.go.bp.v7.2.symbols.gmt")
+cc <- read_msigdb("c5.go.cc.v7.2.symbols.gmt")
+mf <- read_msigdb("c5.go.mf.v7.2.symbols.gmt")
 
 x5 <- list(BP =bp, MF= mf, CC =cc)
 
 msig_go <- update_msig_list(x5)
-# BP: 905 genes missing (117 without a match)
-# MF: 743 genes missing (119 without a match)
-# CC: 733 genes missing (81 without a match)
+
 
 #------------------------
 # C6 oncogenic signatures
 
-x6 <- read_msigdb("c6.all.v7.0.symbols.gmt")
+x6 <- read_msigdb("c6.all.v7.2.symbols.gmt")
 x <- unlist(x6, recursive=FALSE)
 msig_oncogenic <- update_msig_list(list(tmp=x), format = FALSE)[[1]]
 # 921 genes missing (366 without a match)
@@ -136,7 +123,7 @@ msig_oncogenic <- update_msig_list(list(tmp=x), format = FALSE)[[1]]
 #------------------------
 # C7 immunologic signatures
 
-x7 <- read_msigdb("c7.all.v7.0.symbols.gmt")
+x7 <- read_msigdb("c7.all.v7.2.symbols.gmt")
 x <- unlist(x7, recursive=FALSE)
 msig_immunologic <- update_msig_list(list(tmp=x), format = FALSE)[[1]]
 # 3229 genes missing (1986 without a match)

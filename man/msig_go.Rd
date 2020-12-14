@@ -3,8 +3,10 @@
 \docType{data}
 \name{msig_go}
 \alias{msig_go}
-\title{C5 Gene Ontology sets in the MSigDB 7.0.}
-\format{A list of 3 lists with BP, MF, and CC.  See \code{data_raw/msigdb.R} for details.}
+\title{C5 Gene Ontology sets in the MSigDB 7.2.}
+\format{
+A list of 3 ontologies with BP, MF, and CC.  See \code{data_raw/msigdb.R} for details.
+}
 \source{
 \url{http://software.broadinstitute.org/gsea/msigdb/collections.jsp}
 }
@@ -12,7 +14,7 @@
 msig_go
 }
 \description{
-C5 Gene Ontology sets in the MSigDB 7.0.
+C5 Gene Ontology sets in the MSigDB 7.2.
 }
 \examples{
 sapply(msig_go, length)
