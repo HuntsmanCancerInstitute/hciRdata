@@ -4,6 +4,7 @@
 
 ## last database update
 
+# 06/08/2021 MGI 6.17 ??? Empty table!
 # 12/08/2020 MGI 6.16
 # 5/05/2020 MGI 6.15
 # 09/25/2019 MGI 6.14
