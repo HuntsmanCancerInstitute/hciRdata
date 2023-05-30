@@ -4,6 +4,9 @@
 
 ## last database update
 
+# 12/27/2022 MGI 6.22  108
+
+
 # 06/23/2022 MGI 6.20  106
 
 # 06/08/2021 MGI 6.17 ??? Empty table!
@@ -19,12 +22,14 @@ url <- "http://www.informatics.jax.org/downloads/reports/HMD_HumanPhenotype.rpt"
 message("Downloading ", url)
 x <- read_tsv(url, col_names=c("human", "entrez_gene", "homologene", "x1",  "mouse", "id", "phenotype_id", "x2"))
 
-# ensembl 106
+# ensembl 108
 x <- read_tsv(url, col_names=c("human", "entrez_gene", "mouse", "id", "mp", "x1"))
 
 ## duplicated mouse genes
 table(duplicated(x$mouse))
 
+FALSE  TRUE
+20131  9555
 
 
 # Group by gene names

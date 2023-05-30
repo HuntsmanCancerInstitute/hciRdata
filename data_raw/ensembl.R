@@ -1,65 +1,67 @@
 ## Ensembl annotations
 
-    mouse106 <- read_biomart("mouse")
-    human106 <- read_biomart("human")
-      rat106 <- read_biomart("rat")
-      fly106 <- read_biomart("fly")
-    sheep106 <- read_biomart("sheep")
-      pig106 <- read_biomart("pig")
-   rabbit106 <- read_biomart("rabbit")
-     worm106 <- read_biomart("worm")
-   yeast106 <- read_biomart("yeast")
-zebrafish106 <- read_biomart("zebrafish")
- elephant106 <- read_biomart("lafricana")
-  vervet106  <- read_biomart("csabaeus")
+    mouse108 <- read_biomart("mouse", version=108)
+    human108 <- read_biomart("human", version=108)
+
+
+      rat108 <- read_biomart("rat")
+      fly108 <- read_biomart("fly")
+    sheep108 <- read_biomart("sheep")
+      pig108 <- read_biomart("pig")
+   rabbit108 <- read_biomart("rabbit")
+     worm108 <- read_biomart("worm")
+   yeast108 <- read_biomart("yeast")
+zebrafish108 <- read_biomart("zebrafish")
+ elephant108 <- read_biomart("lafricana")
+  vervet108  <- read_biomart("csabaeus")
 
 
 ### ADD human homologs to mouse
 
-mouse106$human_homolog <- ""
-n <- match(mouse106$gene_name, mgi$mouse)
-mouse106$human_homolog <- mgi$human[n]
+mouse108$human_homolog <- ""
+n <- match(mouse108$gene_name, mgi$mouse)
+mouse108$human_homolog <- mgi$human[n]
 
 
 
 ### 68% of yeast genes names are missing, replace with SGD names.  Fixed in 100
-prop.table(table(yeast106$gene_name==""))
+prop.table(table(yeast108$gene_name==""))
 
 # wget https://downloads.yeastgenome.org/curation/chromosomal_feature/SGD_features.tab
 
 sgd <- read_tsv("SGD_features.txt", col_names = c("sgdid", "biotype", "qualifier",
 "gene_name", "standard", "alias", "parent", "other_sgid", "chromosome",
-"start", "stop", "strand", "pos", "coord", "seq", "description"), guess_max=10600)
+"start", "stop", "strand", "pos", "coord", "seq", "description"), guess_max=10800)
 
-n <- match(yeast106$id, sgd$gene_name)
-yeast106$gene_name<- sgd$standard[n]
+n <- match(yeast108$id, sgd$gene_name)
+yeast108$gene_name<- sgd$standard[n]
 
 
-## Descriptions are now missing from fly, fixed in 106
+## Descriptions are now missing from fly, fixed in 108
 
 # wget ftp://ftp.flybase.org/releases/FB2019_05/precomputed_files/synonyms/fb_synonym_fb_2019_05.tsv.gz
 # grep "^FBgn" fb_synonym_fb_2019_05.tsv | cut -f1-4 > fly_genes.txt
 
-table(is.na(fly106$description))
+table(is.na(fly108$description))
 fly <- read_tsv("../data_raw/fly_genes.txt", col_names=c("id", "abbrev", "name", "description"))
-n <- match(fly106$id, fly$id)
-fly106$description <- fly$description[n]
+n <- match(fly108$id, fly$id)
+fly108$description <- fly$description[n]
 
 ##save
 
 # setwd("~/Documents/R/packages/hciRdata/data")
-save(mouse106, file = "mouse106.rda")
-save(human106, file = "human106.rda")
-save(  rat106, file =   "rat106.rda")
-save(  fly106, file =   "fly106.rda")
-save(sheep106, file = "sheep106.rda")
-save(  pig106, file =   "pig106.rda")
-save(rabbit106, file="rabbit106.rda")
-save(zebrafish106, file = "zebrafish106.rda")
-save( worm106, file =  "worm106.rda")
-save(yeast106, file = "yeast106.rda")
-save(vervet106, file = "vervet106.rda")
-save(elephant106, file = "elephant106.rda")
+save(mouse108, file = "mouse108.rda")
+save(human108, file = "human108.rda")
+save(  rat108, file =   "rat108.rda")
+save(  fly108, file =   "fly108.rda")
+save(sheep108, file = "sheep108.rda")
+save(  pig108, file =   "pig108.rda")
+save(rabbit108, file="rabbit108.rda")
+save(zebrafish108, file = "zebrafish108.rda")
+save( worm108, file =  "worm108.rda")
+save(yeast108, file = "yeast108.rda")
+save(vervet108, file = "vervet108.rda")
+save(elephant108, file = "elephant108.rda")
 
 
 ## ADD ensembl homologs to other tables?
@@ -67,7 +69,7 @@ save(elephant106, file = "elephant106.rda")
 
  v1 <- read_biomart("csabaeus", attributes = c("ensembl_gene_id", "external_gene_name",
  "hsapiens_homolog_ensembl_gene", "hsapiens_homolog_associated_gene_name",
-  "hsapiens_homolog_perc_id"), version=106)
+  "hsapiens_homolog_perc_id"), version=108)
  colnames(v1) <- c("geneid", "gene_name", "human_id", "human_gene", "perc_id")
  v1 <- filter(v1, human_id !="")
 ## remove homologs with low percent identity
@@ -84,4 +86,4 @@ v1 <- filter(v1, perc_id> 50)
  # filter(v2, n>1)
 
  #Join vervet annotations and homologs.
- vervet106 <- left_join(vervet106, v2[ ,c(1,5)], by= c(id = "geneid") )
+ vervet108 <- left_join(vervet108, v2[ ,c(1,5)], by= c(id = "geneid") )
