@@ -1,6 +1,6 @@
 Package: hciRdata
 Title: Datasets for hciR
-Version: 1.108
+Version: 1.110
 Author: Chris Stubben
 Maintainer: Chris Stubben <chris.stubben@hci.utah.edu>
 Depends: hciR

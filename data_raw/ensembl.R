@@ -3,6 +3,28 @@
     mouse108 <- read_biomart("mouse", version=108)
     human108 <- read_biomart("human", version=108)
 
+    mouse110 <- read_biomart("mouse", version=110)
+    human110 <- read_biomart("human", version=110)
+# drop patch
+human110 <- filter(human110, !grepl( "^HSCHR|PATCH$", chromosome))
+
+
+### ADD human homologs to mouse
+
+mouse110$human_homolog <- ""
+n <- match(mouse110$gene_name, mgi$mouse)
+mouse110$human_homolog <- mgi$human[n]
+
+##save
+
+# setwd("~/Documents/R/packages/hciRdata/data")
+save(mouse110, file = "mouse110.rda")
+save(human110, file = "human110.rda")
+
+#-------------
+
+
+
 
       rat108 <- read_biomart("rat")
       fly108 <- read_biomart("fly")
@@ -14,13 +36,6 @@
 zebrafish108 <- read_biomart("zebrafish")
  elephant108 <- read_biomart("lafricana")
   vervet108  <- read_biomart("csabaeus")
-
-
-### ADD human homologs to mouse
-
-mouse108$human_homolog <- ""
-n <- match(mouse108$gene_name, mgi$mouse)
-mouse108$human_homolog <- mgi$human[n]
 
 
 
