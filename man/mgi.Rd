@@ -3,7 +3,7 @@
 \docType{data}
 \name{mgi}
 \alias{mgi}
-\title{Mouse and human homologs from MGI 6.16}
+\title{Mouse and human homologs from MGI 6.23 last updated 05/28/2024}
 \format{
 A tibble with 4 columns:
 \describe{
@@ -21,7 +21,7 @@ See the \code{data-raw} directory for code to download and group by mouse gene.
 mgi
 }
 \description{
-Mouse and human homologs from MGI 6.16
+Mouse and human homologs from MGI 6.23 last updated 05/28/2024
 }
 \examples{
 mgi

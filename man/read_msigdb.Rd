@@ -17,11 +17,11 @@ then a list of gene sets only)
 Reads MSigDB GMT files from \url{http://software.broadinstitute.org/gsea/msigdb/collections.jsp}
 }
 \examples{
- gmt <- system.file("extdata", "c2.cp.v6.1.symbols.gmt", package = "hciR")
- msig_pathways <- read_msigdb(gmt)
+ gmt <- system.file("extdata", "c2.cp.v2023.2.Hs.symbols.gmt", package = "hciRdata")
+ msig_path <- read_msigdb(gmt)
  # a list with 9 pathways dbs
- sapply(msig_pathways, length)
- msig_pathways$KEGG[1:3]
+ sapply(msig_path, length)
+ msig_path$KEGG[1:3]
 }
 \author{
 Chris Stubben

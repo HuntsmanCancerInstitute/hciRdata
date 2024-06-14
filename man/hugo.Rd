@@ -3,18 +3,18 @@
 \docType{data}
 \name{hugo}
 \alias{hugo}
-\title{Human gene synonyms from HUGO downloaded on Dec 14, 2020}
+\title{Human gene synonyms from HUGO downloaded on June 13, 2024}
 \format{
-A tibble with 3 columns: name, synonym, source column
+A tibble with 3 columns: name, synonym, type column
 }
 \source{
-\url{https://www.genenames.org/}
+\url{https://g-a8b222.dd271.03c0.data.globus.org/pub/databases/genenames/hgnc/tsv/non_alt_loci_set.txt}
 }
 \usage{
 hugo
 }
 \description{
-Human gene synonyms from HUGO downloaded on Dec 14, 2020
+Human gene synonyms from HUGO downloaded on June 13, 2024
 }
 \examples{
 hugo

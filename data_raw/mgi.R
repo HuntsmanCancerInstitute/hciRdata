@@ -4,8 +4,11 @@
 
 ## last database update
 
-# 12/27/2022 MGI 6.22  108
+05/28/2024
+MGI 6.23
 
+
+# 12/27/2022 MGI 6.22  108
 
 # 06/23/2022 MGI 6.20  106
 
@@ -17,26 +20,31 @@
 # 10/09/2018 MGI 6.12
 
 
+
+
+
+
 url <- "http://www.informatics.jax.org/downloads/reports/HMD_HumanPhenotype.rpt"
 # add empty column 8 to avoid parsing failures
 message("Downloading ", url)
 x <- read_tsv(url, col_names=c("human", "entrez_gene", "homologene", "x1",  "mouse", "id", "phenotype_id", "x2"))
 
-# ensembl 108
+# > ensembl 108
 x <- read_tsv(url, col_names=c("human", "entrez_gene", "mouse", "id", "mp", "x1"))
 
 ## duplicated mouse genes
 table(duplicated(x$mouse))
 
+
 FALSE  TRUE
-20131  9555
+20121  9479
 
 
 # Group by gene names
 mgi <- group_by(x, id, mouse) %>% summarize(n=n(), human = paste(human, collapse=",")) %>%
  ungroup() %>% filter(n !=41) %>% arrange( grepl("Rik$", mouse), mouse)
 
-## 1704 in mgi 6.2
+## 1798 in mgi 6.23
 
 z <- filter(mgi, n>1)
 
@@ -57,9 +65,9 @@ filter(z,  str_detect(human, fixed(mouse, ignore_case=TRUE)) )
 
 
 
-# 206 genes with 2 or more homologs
 filter(mgi, n>1)
 
 attr(mgi, "downloaded") <- Sys.Date()
 
-save(mgi, file="mgi.rda", version=2)
+setwd("~/Documents/R/packages/hciRdata/data")
+save(mgi, file="mgi.rda")

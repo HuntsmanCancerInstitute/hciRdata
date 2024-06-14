@@ -3,7 +3,7 @@
 \docType{data}
 \name{msig_oncogenic}
 \alias{msig_oncogenic}
-\title{C6 oncogenic signatures in the MSigDB 7.2.}
+\title{C6 oncogenic signatures in the MSigDB v2023.2.}
 \format{
 A list with oncogenic signatures.  See \code{data_raw/msigdb.R} for details.
 }
@@ -14,7 +14,7 @@ A list with oncogenic signatures.  See \code{data_raw/msigdb.R} for details.
 msig_oncogenic
 }
 \description{
-C6 oncogenic signatures in the MSigDB 7.2.
+C6 oncogenic signatures in the MSigDB v2023.2.
 }
 \examples{
 length(msig_oncogenic)

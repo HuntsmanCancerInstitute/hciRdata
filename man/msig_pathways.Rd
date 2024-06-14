@@ -3,7 +3,7 @@
 \docType{data}
 \name{msig_pathways}
 \alias{msig_pathways}
-\title{C2 pathways in the MSigDB 7.2.}
+\title{C2 pathways in the MSigDB v2023.2.}
 \format{
 A list of 10 pathway databases.  See \code{data_raw/msigdb.R} for details.
 }
@@ -14,7 +14,7 @@ A list of 10 pathway databases.  See \code{data_raw/msigdb.R} for details.
 msig_pathways
 }
 \description{
-C2 pathways in the MSigDB 7.2.
+C2 pathways in the MSigDB v2023.2.
 }
 \examples{
 sapply(msig_pathways, length)

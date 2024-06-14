@@ -3,7 +3,7 @@
 \docType{data}
 \name{msig_immunologic}
 \alias{msig_immunologic}
-\title{C7 immunologic signatures in the MSigDB 7.2.}
+\title{C7 immunologic signatures in the MSigDB v2023.2.}
 \format{
 A list with immunologic signatures.  See \code{data_raw/msigdb.R} for details.
 }
@@ -14,7 +14,7 @@ A list with immunologic signatures.  See \code{data_raw/msigdb.R} for details.
 msig_immunologic
 }
 \description{
-C7 immunologic signatures in the MSigDB 7.2.
+C7 immunologic signatures in the MSigDB v2023.2.
 }
 \examples{
 length(msig_immunologic)

@@ -3,7 +3,7 @@
 \docType{data}
 \name{msig_motifs}
 \alias{msig_motifs}
-\title{C3 motifs in the MSigDB 7.2.}
+\title{C3 motifs in the MSigDB v2023.2.}
 \format{
 A list of 2 lists including transcription factor and miRNA targets.
 See \code{data_raw/msigdb.R} for details.
@@ -15,7 +15,7 @@ See \code{data_raw/msigdb.R} for details.
 msig_motifs
 }
 \description{
-C3 motifs in the MSigDB 7.2.
+C3 motifs in the MSigDB v2023.2.
 }
 \examples{
 sapply(msig_motifs, length)

@@ -2,6 +2,7 @@
 % Please edit documentation in R/hciRdata-package.R
 \docType{package}
 \name{hciRdata}
+\alias{hciRdata-package}
 \alias{hciRdata}
 \title{Datasets for differential expression and pathway analyses at HCI}
 \description{
