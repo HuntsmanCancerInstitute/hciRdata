@@ -55,6 +55,7 @@ names(msig_hallmark) <- format_msig(names(msig_hallmark))
 
 
 
+
 #------------------------
 # C2 Canonical pathways
 x2 <- read_msigdb("c2.cp.v2023.2.Hs.symbols.gmt")

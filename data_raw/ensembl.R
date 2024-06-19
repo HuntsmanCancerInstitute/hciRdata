@@ -29,10 +29,12 @@ human112$description <- trimws(human112$description)
 human112 <- dplyr::arrange(human112, id)
 
 
-# drop patch
+# drop patch  and NOVEL_TEST
 
 human112 <- filter(human112, !grepl( "^HSCHR|PATCH$", chromosome))
 
+human112 <- filter(human112, !grepl( "NOVEL_TEST$", chromosome))
+human110 <- filter(human110, !grepl( "NOVEL_TEST$", chromosome))
 
 ### ADD human homologs to mouse
 
