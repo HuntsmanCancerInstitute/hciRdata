@@ -83,6 +83,18 @@ update_msig_list <- function(x2, format = TRUE){
 msig_pathways <- update_msig_list(x2)
 
 
+## SPLIT KEGG and KEGG Medicus
+
+
+names(msig_pathways$KEGG)
+
+1:186
+187:805
+
+msig_pathways$KEGG_MEDICUS <- msig_pathways$KEGG[187:805]
+names(msig_pathways$KEGG_MEDICUS) <- gsub("Medicus ", "", names(msig_pathways$KEGG_MEDICUS))
+msig_pathways$KEGG<- msig_pathways$KEGG[1:186]
+
 
 
 #------------------------

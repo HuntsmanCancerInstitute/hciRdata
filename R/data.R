@@ -160,7 +160,7 @@
 
 #' C2 pathways in the MSigDB v2023.2.
 #'
-#' @format A list of 10 pathway databases.  See \code{data_raw/msigdb.R} for details.
+#' @format A list of 9 pathway databases.  See \code{data_raw/msigdb.R} for details.
 #'
 #' @source \url{http://software.broadinstitute.org/gsea/msigdb/collections.jsp}
 #' @examples
